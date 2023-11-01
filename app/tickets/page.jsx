@@ -1,16 +1,19 @@
+import { Suspense } from "react";
+import Loading from "../loading";
 import TicketList from "./TicketList";
 
 export default function tickets() {
   return (
-    <div>
+    <main>
       <nav>
         <div>
-          <h1>Tickets</h1>
+          <h2>Tickets</h2>
           <p><small>Currently open tickets.</small></p>
         </div>
       </nav>
-
-      <TicketList/>
-    </div>
+      <Suspense fallback={<Loading />}>
+        <TicketList />
+      </Suspense>
+    </main>
   )
 }
